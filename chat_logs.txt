@@ -1,0 +1,27 @@
+[2026-10-08 21:13:08] SYSTEM: Alice joined the chat
+[2026-10-08 21:15:38] Alice: helloo all
+[2026-10-08 21:56:44] SYSTEM: Vaishnavi joined the chat
+[2026-10-08 21:56:44] SYSTEM: Ishita joined the chat
+[2026-10-08 21:56:44] SYSTEM: Vaishnavi left the chat
+[2026-10-08 21:56:44] SYSTEM: Ishita left the chat
+[2026-10-08 21:57:36] SYSTEM: Vaishnavi joined the chat
+[2026-10-08 21:57:36] SYSTEM: Ishita joined the chat
+[2026-10-08 21:57:36] Vaishnavi: Hello
+[2026-10-08 21:57:36] Ishita: Hi Vaishnavi
+[2026-10-08 21:57:36] SYSTEM: Ishita left the chat
+[2026-10-08 21:57:36] SYSTEM: Vaishnavi left the chat
+[2026-10-08 22:12:59] SYSTEM: Alice left the chat
+[2026-10-08 22:13:14] SYSTEM: Ishita joined the chat
+[2026-10-08 22:13:19] SYSTEM: Shree joined the chat
+[2026-10-08 22:13:25] Shree: hi
+[2026-10-08 22:13:56] Shree: this is shreee
+[2026-10-08 22:14:04] Ishita: hieeeee this is ishitaa
+[2026-10-08 22:14:07] SYSTEM: Shree left the chat
+[2026-10-08 22:15:01] SYSTEM: Ishita left the chat
+[2026-10-08 22:15:33] SYSTEM: ishita joined the chat
+[2026-10-08 22:15:34] SYSTEM: shree joined the chat
+[2026-10-08 22:15:36] SYSTEM: vaishnavi joined the chat
+[2026-10-08 22:15:41] ishita: hiiii
+[2026-10-08 22:15:46] shree: hiiiiieeeeeeee
+[2026-10-08 22:15:54] SYSTEM: ishita left the chat
+[2026-10-08 22:16:00] SYSTEM: vaishnavi left the chat

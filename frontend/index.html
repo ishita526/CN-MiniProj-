@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Chat - TCP Client-Server</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Screen 1: User Join Screen -->
+  <div id="join-screen" class="join-container">
+    <div class="join-card">
+      <div class="join-header">
+        <h1>Network Chat</h1>
+        <p class="join-subtitle">TCP Client-Server Communication</p>
+      </div>
+
+      <form id="join-form" class="join-form">
+        <label for="username-input" class="join-label">Enter your username</label>
+        <input 
+          type="text" 
+          id="username-input" 
+          class="join-input" 
+          placeholder="e.g. David" 
+          maxlength="20"
+          autocomplete="off"
+          autofocus 
+          required
+        >
+        <button type="submit" id="join-btn" class="btn btn-primary">Join Chat</button>
+        <div id="join-error" class="join-error hidden"></div>
+      </form>
+
+      <div class="join-footer-info">
+        <span>Target: 127.0.0.1:5000</span>
+        <span>•</span>
+        <span>TCP Socket</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 2: Main Chat Application (hidden until user joins) -->
+  <div id="chat-app" class="chat-app hidden">
+    
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <div class="top-bar-left">
+        <div class="app-branding">
+          <span class="app-title">Network Chat</span>
+          <span class="app-subtitle">TCP Client-Server Communication</span>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <div class="network-badge">
+          <span id="connection-status-dot" class="status-indicator"></span>
+          <span id="connection-status-text" class="status-text">Connected</span>
+        </div>
+        <div class="server-address">
+          <span>127.0.0.1:5000</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <div class="workspace">
+      
+      <!-- Left Sidebar: Online Clients & Connection Info -->
+      <aside class="sidebar">
+        
+        <!-- Online Users Section -->
+        <div class="sidebar-section">
+          <div class="sidebar-header">
+            <span class="section-title">ONLINE</span>
+            <span id="online-count" class="online-count">3 online</span>
+          </div>
+          <ul id="user-list" class="user-list">
+            <!-- Populated via script.js -->
+          </ul>
+        </div>
+
+        <!-- Connection Information Panel -->
+        <div class="sidebar-section connection-info-section">
+          <div class="section-title">CONNECTION DETAILS</div>
+          <div class="info-table">
+            <div class="info-row">
+              <span class="info-label">Protocol:</span>
+              <span class="info-value">TCP</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Server:</span>
+              <span class="info-value">127.0.0.1</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Port:</span>
+              <span class="info-value">5000</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Status:</span>
+              <span id="sidebar-status-val" class="info-value status-active">Connected</span>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Main Chat Area -->
+      <main class="chat-area">
+        
+        <!-- Message History Feed -->
+        <div id="messages-container" class="messages-container">
+          <!-- Sample / mock messages populated here -->
+        </div>
+
+        <!-- Message Composer -->
+        <footer class="composer-area">
+          <form id="message-form" class="composer-form">
+            <div class="input-wrapper">
+              <input 
+                type="text" 
+                id="message-input" 
+                class="composer-input" 
+                placeholder="Type a message..." 
+                autocomplete="off"
+              >
+              <button type="submit" id="send-button" class="btn btn-primary send-btn">Send</button>
+            </div>
+            <div class="composer-hint">Press Enter to send</div>
+          </form>
+        </footer>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

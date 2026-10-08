@@ -1,0 +1,494 @@
+/* 
+  Network Chat - Clean Desktop-First Stylesheet
+  Design: Clean, practical, academic engineering tool aesthetic
+*/
+
+:root {
+  --bg-app: #f4f5f7;
+  --bg-surface: #ffffff;
+  --bg-surface-secondary: #f9fafb;
+  --border-color: #e2e5e9;
+  --border-darker: #cbd5e1;
+
+  --text-main: #1f2937;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+
+  --accent-primary: #1d4ed8;
+  --accent-hover: #1e40af;
+  --accent-light: #eff6ff;
+
+  --status-connected: #16a34a;
+  --system-msg-bg: #f3f4f6;
+
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Helper Utility */
+.hidden {
+  display: none !important;
+}
+
+/* Common Button Styles */
+.btn {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+/* -------------------------------------------
+   1. USER JOIN SCREEN
+   ------------------------------------------- */
+.join-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-app);
+}
+
+.join-card {
+  width: 100%;
+  max-width: 380px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.join-header {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.join-header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+}
+
+.join-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.join-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.join-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.join-input {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 9px 12px;
+  border: 1px solid var(--border-darker);
+  border-radius: var(--radius-sm);
+  outline: none;
+  background-color: #ffffff;
+  color: var(--text-main);
+}
+
+.join-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 1px var(--accent-primary);
+}
+
+.join-error {
+  font-size: 12px;
+  color: #b91c1c;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  line-height: 1.4;
+  text-align: left;
+}
+
+.join-footer-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-size: 11px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  padding-top: 14px;
+}
+
+/* -------------------------------------------
+   2. MAIN CHAT LAYOUT
+   ------------------------------------------- */
+.chat-app {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-surface);
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  min-height: 52px;
+}
+
+.app-branding {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.app-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: -0.2px;
+}
+
+.app-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.network-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.status-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--status-connected);
+}
+
+.status-indicator.disconnected {
+  background-color: #dc2626;
+}
+
+.status-active.disconnected {
+  color: #dc2626;
+}
+
+.server-address {
+  font-size: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background-color: var(--bg-surface-secondary);
+  border: 1px solid var(--border-color);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+}
+
+/* Workspace Grid (Sidebar + Chat Area) */
+.workspace {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* -------------------------------------------
+   3. LEFT SIDEBAR (Online Users & Connection)
+   ------------------------------------------- */
+.sidebar {
+  width: 240px;
+  background-color: var(--bg-surface-secondary);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-section {
+  padding: 16px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.online-count {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.user-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-main);
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.user-item.is-self {
+  font-weight: 600;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+}
+
+.user-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--status-connected);
+}
+
+/* Connection Info Box in Sidebar */
+.connection-info-section {
+  border-top: 1px solid var(--border-color);
+  background-color: #fafbfc;
+}
+
+.info-table {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-label {
+  color: var(--text-muted);
+}
+
+.info-value {
+  color: var(--text-main);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11.5px;
+}
+
+.status-active {
+  color: var(--status-connected);
+  font-weight: 600;
+  font-family: var(--font-family);
+}
+
+/* -------------------------------------------
+   4. MAIN CHAT AREA
+   ------------------------------------------- */
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.messages-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Message Styles */
+.message-row {
+  display: flex;
+  flex-direction: column;
+  max-width: 65%;
+}
+
+.message-row.other {
+  align-self: flex-start;
+}
+
+.message-row.self {
+  align-self: flex-end;
+}
+
+.message-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.message-row.self .message-meta {
+  justify-content: flex-end;
+}
+
+.message-sender {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.message-time {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.message-bubble {
+  padding: 9px 13px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+/* Other users' messages */
+.message-row.other .message-bubble {
+  background-color: var(--bg-surface-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+/* Own messages */
+.message-row.self .message-bubble {
+  background-color: var(--accent-light);
+  border: 1px solid #bfdbfe;
+  color: #1e3a8a;
+}
+
+/* System Notice Messages */
+.system-notice {
+  align-self: center;
+  background-color: var(--system-msg-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 11.5px;
+  padding: 3px 12px;
+  border-radius: 12px;
+  margin: 6px 0;
+  font-style: normal;
+}
+
+/* -------------------------------------------
+   5. MESSAGE COMPOSER
+   ------------------------------------------- */
+.composer-area {
+  padding: 14px 20px 12px 20px;
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-color);
+}
+
+.composer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.composer-input {
+  flex: 1;
+  font-family: inherit;
+  font-size: 13.5px;
+  padding: 9px 12px;
+  border: 1px solid var(--border-darker);
+  border-radius: var(--radius-sm);
+  outline: none;
+  color: var(--text-main);
+  background-color: #ffffff;
+}
+
+.composer-input:focus {
+  border-color: var(--accent-primary);
+}
+
+.send-btn {
+  padding: 0 18px;
+}
+
+.composer-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-left: 2px;
+}
+
+/* Laptop and compact screen responsiveness */
+@media (max-width: 800px) {
+  .sidebar {
+    width: 200px;
+  }
+  .message-row {
+    max-width: 80%;
+  }
+}
